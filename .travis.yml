@@ -1,0 +1,16 @@
+language: python
+
+python:
+  - 3.5
+
+install:
+  - pip install -r requirements.txt
+  - pip install coveralls
+  - pip install pep8
+
+script:
+  - coverage run --omit=*.virtualenvs*,*virtualenv* src/InventoryManagement/manage.py test --settings=settings_test.py
+  - pep8 --count --show-source --exclude=migrations src/
+
+after_success:
+  - coveralls
