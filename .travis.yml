@@ -9,7 +9,6 @@ install:
   - pip install pep8
 
 script:
-  - coverage run --omit=*.virtualenvs*,*virtualenv* src/InventoryManagement/manage.py test --settings=settings_test.py
   - pep8 --count --show-source --exclude=migrations src/
 
 after_success:
